@@ -3,13 +3,13 @@
 import {
   shared.Pet,
   AddPetFormResponse
-} from "Pet-Store/dist/sdk/models/operations";
+} from "new-swagger-pet-store/dist/sdk/models/operations";
 import {
   PetStatusEnum,
-} from "Pet-Store/dist/sdk/models/shared";
+} from "new-swagger-pet-store/dist/sdk/models/shared";
 
 import { AxiosError } from "axios";
-import { SDK } from "Pet-Store";
+import { SDK } from "new-swagger-pet-store";
 const sdk = new SDK();
 
 const req: shared.Pet = {
