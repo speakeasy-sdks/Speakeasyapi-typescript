@@ -2,13 +2,13 @@ configVersion: 1.0.0
 management:
   docChecksum: b48ba53c578ee1105aae2f4bbdc4af27
   docVersion: 1.0.11
-  speakeasyVersion: 1.22.1
-  generationVersion: 2.20.1
+  speakeasyVersion: 1.23.1
+  generationVersion: 2.21.1
 generation:
   telemetryEnabled: false
   sdkClassName: SDK
   singleTagPerOp: false
 typescript:
-  version: 0.1.0
+  version: 0.2.0
   author: Speakeasyapi
   packageName: new-swagger-pet-store

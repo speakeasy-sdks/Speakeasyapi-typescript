@@ -19,16 +19,11 @@ yarn add new-swagger-pet-store
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  shared.Pet,
-  AddPetFormResponse
-} from "new-swagger-pet-store/dist/sdk/models/operations";
-import {
-  PetStatusEnum,
-} from "new-swagger-pet-store/dist/sdk/models/shared";
-
 import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
+import { AddPetFormResponse, Pet } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+
 const sdk = new SDK();
 
 const req: shared.Pet = {
@@ -65,7 +60,9 @@ const req: shared.Pet = {
 };
 
 sdk.pet.addPetForm(req).then((res: AddPetFormResponse | AxiosError) => {
-   // handle response
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
 });
 ```
 <!-- End SDK Example Usage -->
@@ -74,43 +71,43 @@ sdk.pet.addPetForm(req).then((res: AddPetFormResponse | AxiosError) => {
 ## Available Resources and Operations
 
 
-### pet
+### [pet](docs/pet/README.md)
 
-* `addPetForm` - Add a new pet to the store
-* `addPetJson` - Add a new pet to the store
-* `addPetRaw` - Add a new pet to the store
-* `deletePet` - Deletes a pet
-* `findPetsByStatus` - Finds Pets by status
-* `findPetsByTags` - Finds Pets by tags
-* `getPetById` - Find pet by ID
-* `updatePetWithForm` - Updates a pet in the store with form data
-* `updatePetForm` - Update an existing pet
-* `updatePetJson` - Update an existing pet
-* `updatePetRaw` - Update an existing pet
-* `uploadFile` - uploads an image
+* [addPetForm](docs/pet/README.md#addpetform) - Add a new pet to the store
+* [addPetJson](docs/pet/README.md#addpetjson) - Add a new pet to the store
+* [addPetRaw](docs/pet/README.md#addpetraw) - Add a new pet to the store
+* [deletePet](docs/pet/README.md#deletepet) - Deletes a pet
+* [findPetsByStatus](docs/pet/README.md#findpetsbystatus) - Finds Pets by status
+* [findPetsByTags](docs/pet/README.md#findpetsbytags) - Finds Pets by tags
+* [getPetById](docs/pet/README.md#getpetbyid) - Find pet by ID
+* [updatePetWithForm](docs/pet/README.md#updatepetwithform) - Updates a pet in the store with form data
+* [updatePetForm](docs/pet/README.md#updatepetform) - Update an existing pet
+* [updatePetJson](docs/pet/README.md#updatepetjson) - Update an existing pet
+* [updatePetRaw](docs/pet/README.md#updatepetraw) - Update an existing pet
+* [uploadFile](docs/pet/README.md#uploadfile) - uploads an image
 
-### store
+### [store](docs/store/README.md)
 
-* `deleteOrder` - Delete purchase order by ID
-* `getInventory` - Returns pet inventories by status
-* `getOrderById` - Find purchase order by ID
-* `placeOrderForm` - Place an order for a pet
-* `placeOrderJson` - Place an order for a pet
-* `placeOrderRaw` - Place an order for a pet
+* [deleteOrder](docs/store/README.md#deleteorder) - Delete purchase order by ID
+* [getInventory](docs/store/README.md#getinventory) - Returns pet inventories by status
+* [getOrderById](docs/store/README.md#getorderbyid) - Find purchase order by ID
+* [placeOrderForm](docs/store/README.md#placeorderform) - Place an order for a pet
+* [placeOrderJson](docs/store/README.md#placeorderjson) - Place an order for a pet
+* [placeOrderRaw](docs/store/README.md#placeorderraw) - Place an order for a pet
 
-### user
+### [user](docs/user/README.md)
 
-* `createUserForm` - Create user
-* `createUserJson` - Create user
-* `createUserRaw` - Create user
-* `createUsersWithListInput` - Creates list of users with given input array
-* `deleteUser` - Delete user
-* `getUserByName` - Get user by user name
-* `loginUser` - Logs user into the system
-* `logoutUser` - Logs out current logged in user session
-* `updateUserForm` - Update user
-* `updateUserJson` - Update user
-* `updateUserRaw` - Update user
+* [createUserForm](docs/user/README.md#createuserform) - Create user
+* [createUserJson](docs/user/README.md#createuserjson) - Create user
+* [createUserRaw](docs/user/README.md#createuserraw) - Create user
+* [createUsersWithListInput](docs/user/README.md#createuserswithlistinput) - Creates list of users with given input array
+* [deleteUser](docs/user/README.md#deleteuser) - Delete user
+* [getUserByName](docs/user/README.md#getuserbyname) - Get user by user name
+* [loginUser](docs/user/README.md#loginuser) - Logs user into the system
+* [logoutUser](docs/user/README.md#logoutuser) - Logs out current logged in user session
+* [updateUserForm](docs/user/README.md#updateuserform) - Update user
+* [updateUserJson](docs/user/README.md#updateuserjson) - Update user
+* [updateUserRaw](docs/user/README.md#updateuserraw) - Update user
 <!-- End SDK Available Operations -->
 
 ### Maturity
