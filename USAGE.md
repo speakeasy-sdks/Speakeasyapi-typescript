@@ -1,13 +1,12 @@
 <!-- Start SDK Example Usage -->
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { AddPetFormResponse, Pet } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { AddPetFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-const req: shared.Pet = {
+sdk.pet.addPetForm({
   category: {
     id: 1,
     name: "Dogs",
@@ -38,10 +37,8 @@ const req: shared.Pet = {
       name: "Mrs. Sophie Smith MD",
     },
   ],
-};
-
-sdk.pet.addPetForm(req).then((res: AddPetFormResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: AddPetFormResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

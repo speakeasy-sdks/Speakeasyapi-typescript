@@ -40,7 +40,7 @@ export class User {
    * @remarks
    * This can only be done by the logged in user.
    */
-  createUserForm(
+  async createUserForm(
     req: shared.User,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateUserFormResponse> {
@@ -69,7 +69,8 @@ export class User {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -77,34 +78,34 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateUserFormResponse =
-        new operations.CreateUserFormResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.user = utils.objectToClass(httpRes?.data, shared.User);
-          }
-          if (utils.matchContentType(contentType, `application/xml`)) {
-            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-            const out: Uint8Array = new Uint8Array(resBody.length);
-            for (let i = 0; i < resBody.length; i++)
-              out[i] = resBody.charCodeAt(i);
-            res.body = out;
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateUserFormResponse =
+      new operations.CreateUserFormResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.user = utils.objectToClass(httpRes?.data, shared.User);
+        }
+        if (utils.matchContentType(contentType, `application/xml`)) {
+          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+          const out: Uint8Array = new Uint8Array(resBody.length);
+          for (let i = 0; i < resBody.length; i++)
+            out[i] = resBody.charCodeAt(i);
+          res.body = out;
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -113,7 +114,7 @@ export class User {
    * @remarks
    * This can only be done by the logged in user.
    */
-  createUserJson(
+  async createUserJson(
     req: shared.User,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateUserJsonResponse> {
@@ -142,7 +143,8 @@ export class User {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -150,34 +152,34 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateUserJsonResponse =
-        new operations.CreateUserJsonResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.user = utils.objectToClass(httpRes?.data, shared.User);
-          }
-          if (utils.matchContentType(contentType, `application/xml`)) {
-            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-            const out: Uint8Array = new Uint8Array(resBody.length);
-            for (let i = 0; i < resBody.length; i++)
-              out[i] = resBody.charCodeAt(i);
-            res.body = out;
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateUserJsonResponse =
+      new operations.CreateUserJsonResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.user = utils.objectToClass(httpRes?.data, shared.User);
+        }
+        if (utils.matchContentType(contentType, `application/xml`)) {
+          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+          const out: Uint8Array = new Uint8Array(resBody.length);
+          for (let i = 0; i < resBody.length; i++)
+            out[i] = resBody.charCodeAt(i);
+          res.body = out;
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -186,7 +188,7 @@ export class User {
    * @remarks
    * This can only be done by the logged in user.
    */
-  createUserRaw(
+  async createUserRaw(
     req: Uint8Array,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateUserRawResponse> {
@@ -211,7 +213,8 @@ export class User {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -219,34 +222,34 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateUserRawResponse =
-        new operations.CreateUserRawResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.user = utils.objectToClass(httpRes?.data, shared.User);
-          }
-          if (utils.matchContentType(contentType, `application/xml`)) {
-            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-            const out: Uint8Array = new Uint8Array(resBody.length);
-            for (let i = 0; i < resBody.length; i++)
-              out[i] = resBody.charCodeAt(i);
-            res.body = out;
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateUserRawResponse =
+      new operations.CreateUserRawResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.user = utils.objectToClass(httpRes?.data, shared.User);
+        }
+        if (utils.matchContentType(contentType, `application/xml`)) {
+          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+          const out: Uint8Array = new Uint8Array(resBody.length);
+          for (let i = 0; i < resBody.length; i++)
+            out[i] = resBody.charCodeAt(i);
+          res.body = out;
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -255,7 +258,7 @@ export class User {
    * @remarks
    * Creates list of users with given input array
    */
-  createUsersWithListInput(
+  async createUsersWithListInput(
     req: shared.User[],
     config?: AxiosRequestConfig
   ): Promise<operations.CreateUsersWithListInputResponse> {
@@ -280,7 +283,8 @@ export class User {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -288,36 +292,36 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateUsersWithListInputResponse =
-        new operations.CreateUsersWithListInputResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.user = utils.objectToClass(httpRes?.data, shared.User);
-          }
-          if (utils.matchContentType(contentType, `application/xml`)) {
-            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-            const out: Uint8Array = new Uint8Array(resBody.length);
-            for (let i = 0; i < resBody.length; i++)
-              out[i] = resBody.charCodeAt(i);
-            res.body = out;
-          }
-          break;
-        default:
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateUsersWithListInputResponse =
+      new operations.CreateUsersWithListInputResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.user = utils.objectToClass(httpRes?.data, shared.User);
+        }
+        if (utils.matchContentType(contentType, `application/xml`)) {
+          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+          const out: Uint8Array = new Uint8Array(resBody.length);
+          for (let i = 0; i < resBody.length; i++)
+            out[i] = resBody.charCodeAt(i);
+          res.body = out;
+        }
+        break;
+      default:
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -326,7 +330,7 @@ export class User {
    * @remarks
    * This can only be done by the logged in user.
    */
-  deleteUser(
+  async deleteUser(
     req: operations.DeleteUserRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteUserResponse> {
@@ -339,36 +343,37 @@ export class User {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteUserResponse =
-        new operations.DeleteUserResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case [400, 404].includes(httpRes?.status):
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.DeleteUserResponse =
+      new operations.DeleteUserResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case [400, 404].includes(httpRes?.status):
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Get user by user name
    */
-  getUserByName(
+  async getUserByName(
     req: operations.GetUserByNameRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetUserByNameResponse> {
@@ -381,48 +386,49 @@ export class User {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetUserByNameResponse =
-        new operations.GetUserByNameResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.user = utils.objectToClass(httpRes?.data, shared.User);
-          }
-          if (utils.matchContentType(contentType, `application/xml`)) {
-            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-            const out: Uint8Array = new Uint8Array(resBody.length);
-            for (let i = 0; i < resBody.length; i++)
-              out[i] = resBody.charCodeAt(i);
-            res.body = out;
-          }
-          break;
-        case [400, 404].includes(httpRes?.status):
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetUserByNameResponse =
+      new operations.GetUserByNameResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.user = utils.objectToClass(httpRes?.data, shared.User);
+        }
+        if (utils.matchContentType(contentType, `application/xml`)) {
+          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+          const out: Uint8Array = new Uint8Array(resBody.length);
+          for (let i = 0; i < resBody.length; i++)
+            out[i] = resBody.charCodeAt(i);
+          res.body = out;
+        }
+        break;
+      case [400, 404].includes(httpRes?.status):
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Logs user into the system
    */
-  loginUser(
+  async loginUser(
     req: operations.LoginUserRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.LoginUserResponse> {
@@ -437,47 +443,45 @@ export class User {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.LoginUserResponse =
-        new operations.LoginUserResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-          headers: utils.getHeadersFromResponse(httpRes.headers),
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.loginUser200ApplicationJSONString = JSON.stringify(
-              httpRes?.data
-            );
-          }
-          if (utils.matchContentType(contentType, `application/xml`)) {
-            res.loginUser200ApplicationXMLString = httpRes?.data;
-          }
-          break;
-        case httpRes?.status == 400:
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
+    const res: operations.LoginUserResponse = new operations.LoginUserResponse({
+      statusCode: httpRes.status,
+      contentType: contentType,
+      rawResponse: httpRes,
+      headers: utils.getHeadersFromResponse(httpRes.headers),
     });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.loginUser200ApplicationJSONString = JSON.stringify(httpRes?.data);
+        }
+        if (utils.matchContentType(contentType, `application/xml`)) {
+          res.loginUser200ApplicationXMLString = httpRes?.data;
+        }
+        break;
+      case httpRes?.status == 400:
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Logs out current logged in user session
    */
-  logoutUser(
+  async logoutUser(
     config?: AxiosRequestConfig
   ): Promise<operations.LogoutUserResponse> {
     const baseURL: string = this._serverURL;
@@ -485,30 +489,31 @@ export class User {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.LogoutUserResponse =
-        new operations.LogoutUserResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        default:
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.LogoutUserResponse =
+      new operations.LogoutUserResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      default:
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -517,7 +522,7 @@ export class User {
    * @remarks
    * This can only be done by the logged in user.
    */
-  updateUserForm(
+  async updateUserForm(
     req: operations.UpdateUserFormRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateUserFormResponse> {
@@ -546,7 +551,8 @@ export class User {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "put",
       headers: headers,
@@ -554,24 +560,24 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateUserFormResponse =
-        new operations.UpdateUserFormResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        default:
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateUserFormResponse =
+      new operations.UpdateUserFormResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      default:
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -580,7 +586,7 @@ export class User {
    * @remarks
    * This can only be done by the logged in user.
    */
-  updateUserJson(
+  async updateUserJson(
     req: operations.UpdateUserJsonRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateUserJsonResponse> {
@@ -609,7 +615,8 @@ export class User {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "put",
       headers: headers,
@@ -617,24 +624,24 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateUserJsonResponse =
-        new operations.UpdateUserJsonResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        default:
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateUserJsonResponse =
+      new operations.UpdateUserJsonResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      default:
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -643,7 +650,7 @@ export class User {
    * @remarks
    * This can only be done by the logged in user.
    */
-  updateUserRaw(
+  async updateUserRaw(
     req: operations.UpdateUserRawRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateUserRawResponse> {
@@ -672,7 +679,8 @@ export class User {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "put",
       headers: headers,
@@ -680,23 +688,23 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateUserRawResponse =
-        new operations.UpdateUserRawResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        default:
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateUserRawResponse =
+      new operations.UpdateUserRawResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      default:
+        break;
+    }
+
+    return res;
   }
 }

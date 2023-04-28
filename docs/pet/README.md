@@ -28,14 +28,13 @@ Add a new pet to the store
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { AddPetFormResponse, Pet } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { AddPetFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-const req: shared.Pet = {
+sdk.pet.addPetForm({
   category: {
     id: 1,
     name: "Dogs",
@@ -64,10 +63,8 @@ const req: shared.Pet = {
       name: "Everett Breitenberg",
     },
   ],
-};
-
-sdk.pet.addPetForm(req).then((res: AddPetFormResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: AddPetFormResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -80,14 +77,13 @@ Add a new pet to the store
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { AddPetJsonResponse, Pet } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { AddPetJsonResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-const req: shared.Pet = {
+sdk.pet.addPetJson({
   category: {
     id: 1,
     name: "Dogs",
@@ -109,10 +105,8 @@ const req: shared.Pet = {
       name: "Curtis Morissette",
     },
   ],
-};
-
-sdk.pet.addPetJson(req).then((res: AddPetJsonResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: AddPetJsonResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -125,17 +119,14 @@ Add a new pet to the store
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { , AddPetRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { AddPetRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-const req: . = "saepe".encode();
-
-sdk.pet.addPetRaw(req).then((res: AddPetRawResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.pet.addPetRaw("saepe".encode()).then((res: AddPetRawResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -148,19 +139,16 @@ delete a pet
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { DeletePetRequest, DeletePetResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { DeletePetResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: DeletePetRequest = {
+sdk.pet.deletePet({
   apiKey: "fuga",
   petId: 449950,
-};
-
-sdk.pet.deletePet(req).then((res: DeletePetResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeletePetResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -173,19 +161,16 @@ Multiple status values can be provided with comma separated strings
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { FindPetsByStatusRequest, FindPetsByStatusResponse, FindPetsByStatusStatusEnum } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { FindPetsByStatusResponse, FindPetsByStatusStatusEnum } from "new-swagger-pet-store/dist/sdk/models/operations";
 import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-const req: FindPetsByStatusRequest = {
+sdk.pet.findPetsByStatus({
   status: FindPetsByStatusStatusEnum.Pending,
-};
-
-sdk.pet.findPetsByStatus(req).then((res: FindPetsByStatusResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: FindPetsByStatusResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -198,23 +183,20 @@ Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { FindPetsByTagsRequest, FindPetsByTagsResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { FindPetsByTagsResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-const req: FindPetsByTagsRequest = {
+sdk.pet.findPetsByTags({
   tags: [
     "iure",
     "saepe",
     "quidem",
   ],
-};
-
-sdk.pet.findPetsByTags(req).then((res: FindPetsByTagsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: FindPetsByTagsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -227,19 +209,16 @@ Returns a single pet
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { GetPetByIdRequest, GetPetByIdResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { GetPetByIdResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-const req: GetPetByIdRequest = {
+sdk.pet.getPetById({
   petId: 99280,
-};
-
-sdk.pet.getPetById(req).then((res: GetPetByIdResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetPetByIdResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -252,20 +231,17 @@ Updates a pet in the store with form data
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { UpdatePetWithFormRequest, UpdatePetWithFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { UpdatePetWithFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: UpdatePetWithFormRequest = {
+sdk.pet.updatePetWithForm({
   name: "Lela Orn",
   petId: 170909,
   status: "dolorem",
-};
-
-sdk.pet.updatePetWithForm(req).then((res: UpdatePetWithFormResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdatePetWithFormResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -278,14 +254,13 @@ Update an existing pet by Id
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { Pet, UpdatePetFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { UpdatePetFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-const req: shared.Pet = {
+sdk.pet.updatePetForm({
   category: {
     id: 1,
     name: "Dogs",
@@ -311,10 +286,8 @@ const req: shared.Pet = {
       name: "Shaun McCullough",
     },
   ],
-};
-
-sdk.pet.updatePetForm(req).then((res: UpdatePetFormResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdatePetFormResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -327,14 +300,13 @@ Update an existing pet by Id
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { Pet, UpdatePetJsonResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { UpdatePetJsonResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-const req: shared.Pet = {
+sdk.pet.updatePetJson({
   category: {
     id: 1,
     name: "Dogs",
@@ -352,10 +324,8 @@ const req: shared.Pet = {
       name: "Kayla O'Kon",
     },
   ],
-};
-
-sdk.pet.updatePetJson(req).then((res: UpdatePetJsonResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdatePetJsonResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -368,17 +338,14 @@ Update an existing pet by Id
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { , UpdatePetRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { UpdatePetRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-const req: . = "quo".encode();
-
-sdk.pet.updatePetRaw(req).then((res: UpdatePetRawResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.pet.updatePetRaw("quo".encode()).then((res: UpdatePetRawResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -391,20 +358,17 @@ uploads an image
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { UploadFileRequest, UploadFileResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { UploadFileResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: UploadFileRequest = {
+sdk.pet.uploadFile({
   requestBody: "sequi".encode(),
   additionalMetadata: "tenetur",
   petId: 368725,
-};
-
-sdk.pet.uploadFile(req).then((res: UploadFileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UploadFileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

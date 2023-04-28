@@ -25,13 +25,12 @@ This can only be done by the logged in user.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { CreateUserFormResponse, User } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { CreateUserFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: shared.User = {
+sdk.user.createUserForm({
   email: "john@email.com",
   firstName: "John",
   id: 10,
@@ -40,10 +39,8 @@ const req: shared.User = {
   phone: "12345",
   userStatus: 1,
   username: "theUser",
-};
-
-sdk.user.createUserForm(req).then((res: CreateUserFormResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateUserFormResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -56,13 +53,12 @@ This can only be done by the logged in user.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { CreateUserJsonResponse, User } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { CreateUserJsonResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: shared.User = {
+sdk.user.createUserJson({
   email: "john@email.com",
   firstName: "John",
   id: 10,
@@ -71,10 +67,8 @@ const req: shared.User = {
   phone: "12345",
   userStatus: 1,
   username: "theUser",
-};
-
-sdk.user.createUserJson(req).then((res: CreateUserJsonResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateUserJsonResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -87,16 +81,13 @@ This can only be done by the logged in user.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { , CreateUserRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { CreateUserRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: . = "quasi".encode();
-
-sdk.user.createUserRaw(req).then((res: CreateUserRawResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.user.createUserRaw("quasi".encode()).then((res: CreateUserRawResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -109,13 +100,12 @@ Creates list of users with given input array
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { , CreateUsersWithListInputResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { CreateUsersWithListInputResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: . = [
+sdk.user.createUsersWithListInput([
   {
     email: "john@email.com",
     firstName: "John",
@@ -156,10 +146,8 @@ const req: . = [
     userStatus: 1,
     username: "theUser",
   },
-];
-
-sdk.user.createUsersWithListInput(req).then((res: CreateUsersWithListInputResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+]).then((res: CreateUsersWithListInputResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -172,18 +160,15 @@ This can only be done by the logged in user.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { DeleteUserRequest, DeleteUserResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { DeleteUserResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: DeleteUserRequest = {
+sdk.user.deleteUser({
   username: "Weston_Thiel",
-};
-
-sdk.user.deleteUser(req).then((res: DeleteUserResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteUserResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -196,18 +181,15 @@ Get user by user name
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { GetUserByNameRequest, GetUserByNameResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { GetUserByNameResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: GetUserByNameRequest = {
+sdk.user.getUserByName({
   username: "Whitney.Bednar",
-};
-
-sdk.user.getUserByName(req).then((res: GetUserByNameResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetUserByNameResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -220,19 +202,16 @@ Logs user into the system
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { LoginUserRequest, LoginUserResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { LoginUserResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: LoginUserRequest = {
+sdk.user.loginUser({
   password: "cum",
   username: "Aiyana.Batz",
-};
-
-sdk.user.loginUser(req).then((res: LoginUserResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: LoginUserResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -245,14 +224,13 @@ Logs out current logged in user session
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
 import { LogoutUserResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-sdk.user.logoutUser().then((res: LogoutUserResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.user.logoutUser().then((res: LogoutUserResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -265,13 +243,12 @@ This can only be done by the logged in user.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { UpdateUserFormRequest, UpdateUserFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { UpdateUserFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: UpdateUserFormRequest = {
+sdk.user.updateUserForm({
   user: {
     email: "john@email.com",
     firstName: "John",
@@ -283,10 +260,8 @@ const req: UpdateUserFormRequest = {
     username: "theUser",
   },
   username: "Wilfrid.Carter",
-};
-
-sdk.user.updateUserForm(req).then((res: UpdateUserFormResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateUserFormResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -299,13 +274,12 @@ This can only be done by the logged in user.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { UpdateUserJsonRequest, UpdateUserJsonResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { UpdateUserJsonResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: UpdateUserJsonRequest = {
+sdk.user.updateUserJson({
   user: {
     email: "john@email.com",
     firstName: "John",
@@ -317,10 +291,8 @@ const req: UpdateUserJsonRequest = {
     username: "theUser",
   },
   username: "Jayden.Carter88",
-};
-
-sdk.user.updateUserJson(req).then((res: UpdateUserJsonResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateUserJsonResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -333,19 +305,16 @@ This can only be done by the logged in user.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "new-swagger-pet-store";
-import { UpdateUserRawRequest, UpdateUserRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { UpdateUserRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: UpdateUserRawRequest = {
+sdk.user.updateUserRaw({
   requestBody: "commodi".encode(),
   username: "Terrill69",
-};
-
-sdk.user.updateUserRaw(req).then((res: UpdateUserRawResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateUserRawResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
