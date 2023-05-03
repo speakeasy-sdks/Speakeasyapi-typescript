@@ -56,6 +56,8 @@ sdk.pet.addPetForm({
       name: "Mrs. Sophie Smith MD",
     },
   ],
+}, {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: AddPetFormResponse) => {
   if (res.statusCode == 200) {
     // handle response

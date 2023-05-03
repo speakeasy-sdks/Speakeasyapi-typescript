@@ -63,6 +63,8 @@ sdk.pet.addPetForm({
       name: "Everett Breitenberg",
     },
   ],
+}, {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: AddPetFormResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -105,6 +107,8 @@ sdk.pet.addPetJson({
       name: "Curtis Morissette",
     },
   ],
+}, {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: AddPetJsonResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -125,7 +129,9 @@ import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-sdk.pet.addPetRaw("saepe".encode()).then((res: AddPetRawResponse) => {
+sdk.pet.addPetRaw("saepe".encode(), {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+}).then((res: AddPetRawResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -147,6 +153,8 @@ const sdk = new SDK();
 sdk.pet.deletePet({
   apiKey: "fuga",
   petId: 449950,
+}, {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: DeletePetResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -169,6 +177,8 @@ const sdk = new SDK();
 
 sdk.pet.findPetsByStatus({
   status: FindPetsByStatusStatusEnum.Pending,
+}, {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: FindPetsByStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -195,6 +205,8 @@ sdk.pet.findPetsByTags({
     "saepe",
     "quidem",
   ],
+}, {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: FindPetsByTagsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -217,6 +229,8 @@ const sdk = new SDK();
 
 sdk.pet.getPetById({
   petId: 99280,
+}, {
+  apiKey: "YOUR_API_KEY_HERE",
 }).then((res: GetPetByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -240,6 +254,8 @@ sdk.pet.updatePetWithForm({
   name: "Lela Orn",
   petId: 170909,
   status: "dolorem",
+}, {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: UpdatePetWithFormResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -286,6 +302,8 @@ sdk.pet.updatePetForm({
       name: "Shaun McCullough",
     },
   ],
+}, {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: UpdatePetFormResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -324,6 +342,8 @@ sdk.pet.updatePetJson({
       name: "Kayla O'Kon",
     },
   ],
+}, {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: UpdatePetJsonResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -344,7 +364,9 @@ import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
-sdk.pet.updatePetRaw("quo".encode()).then((res: UpdatePetRawResponse) => {
+sdk.pet.updatePetRaw("quo".encode(), {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+}).then((res: UpdatePetRawResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -367,6 +389,8 @@ sdk.pet.uploadFile({
   requestBody: "sequi".encode(),
   additionalMetadata: "tenetur",
   petId: 368725,
+}, {
+  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: UploadFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
