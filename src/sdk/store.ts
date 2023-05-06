@@ -93,12 +93,19 @@ export class Store {
    * Returns a map of status codes to quantities
    */
   async getInventory(
+    security: operations.GetInventorySecurity,
     config?: AxiosRequestConfig
   ): Promise<operations.GetInventoryResponse> {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/store/inventory";
 
-    const client: AxiosInstance = this._defaultClient;
+    if (!(security instanceof utils.SpeakeasyBase)) {
+      security = new operations.GetInventorySecurity(security);
+    }
+    const client: AxiosInstance = utils.createSecurityClient(
+      this._defaultClient,
+      security
+    );
 
     const httpRes: AxiosResponse = await client.request({
       validateStatus: () => true,
