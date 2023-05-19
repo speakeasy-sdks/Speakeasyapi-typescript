@@ -16,7 +16,7 @@ export class FindPetsByStatusSecurity extends SpeakeasyBase {
 /**
  * Status values that need to be considered for filter
  */
-export enum FindPetsByStatusStatusEnum {
+export enum FindPetsByStatusStatus {
   Available = "available",
   Pending = "pending",
   Sold = "sold",
@@ -29,7 +29,7 @@ export class FindPetsByStatusRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=status",
   })
-  status?: FindPetsByStatusStatusEnum;
+  status?: FindPetsByStatusStatus;
 }
 
 export class FindPetsByStatusResponse extends SpeakeasyBase {

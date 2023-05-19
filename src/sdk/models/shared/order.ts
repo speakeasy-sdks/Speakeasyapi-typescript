@@ -8,7 +8,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * Order Status
  */
-export enum OrderStatusEnum {
+export enum OrderStatus {
   Placed = "placed",
   Approved = "approved",
   Delivered = "delivered",
@@ -41,5 +41,5 @@ export class Order extends SpeakeasyBase {
    */
   @SpeakeasyMetadata({ data: "form, name=status" })
   @Expose({ name: "status" })
-  status?: OrderStatusEnum;
+  status?: OrderStatus;
 }

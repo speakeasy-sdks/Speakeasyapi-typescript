@@ -2,7 +2,7 @@
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { AddPetFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -18,7 +18,7 @@ sdk.pet.addPetForm({
     "distinctio",
     "quibusdam",
   ],
-  status: PetStatusEnum.Pending,
+  status: PetStatus.Pending,
   tags: [
     {
       id: 544883,

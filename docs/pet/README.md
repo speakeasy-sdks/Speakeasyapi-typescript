@@ -30,7 +30,7 @@ Add a new pet to the store
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { AddPetFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -44,7 +44,7 @@ sdk.pet.addPetForm({
   photoUrls: [
     "ipsam",
   ],
-  status: PetStatusEnum.Sold,
+  status: PetStatus.Sold,
   tags: [
     {
       id: 778157,
@@ -81,7 +81,7 @@ Add a new pet to the store
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { AddPetJsonResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -96,7 +96,7 @@ sdk.pet.addPetJson({
     "qui",
     "impedit",
   ],
-  status: PetStatusEnum.Sold,
+  status: PetStatus.Sold,
   tags: [
     {
       id: 216550,
@@ -125,7 +125,7 @@ Add a new pet to the store
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { AddPetRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -170,13 +170,13 @@ Multiple status values can be provided with comma separated strings
 
 ```typescript
 import { SDK } from "new-swagger-pet-store";
-import { FindPetsByStatusResponse, FindPetsByStatusStatusEnum } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { FindPetsByStatusResponse, FindPetsByStatusStatus } from "new-swagger-pet-store/dist/sdk/models/operations";
+import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
 sdk.pet.findPetsByStatus({
-  status: FindPetsByStatusStatusEnum.Pending,
+  status: FindPetsByStatusStatus.Pending,
 }, {
   petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
 }).then((res: FindPetsByStatusResponse) => {
@@ -195,7 +195,7 @@ Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { FindPetsByTagsResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -223,7 +223,7 @@ Returns a single pet
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { GetPetByIdResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -272,7 +272,7 @@ Update an existing pet by Id
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { UpdatePetFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -287,7 +287,7 @@ sdk.pet.updatePetForm({
     "explicabo",
     "nobis",
   ],
-  status: PetStatusEnum.Available,
+  status: PetStatus.Available,
   tags: [
     {
       id: 363711,
@@ -320,7 +320,7 @@ Update an existing pet by Id
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { UpdatePetJsonResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -335,7 +335,7 @@ sdk.pet.updatePetJson({
     "molestiae",
     "velit",
   ],
-  status: PetStatusEnum.Pending,
+  status: PetStatus.Pending,
   tags: [
     {
       id: 338007,
@@ -360,7 +360,7 @@ Update an existing pet by Id
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { UpdatePetRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { PetStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 

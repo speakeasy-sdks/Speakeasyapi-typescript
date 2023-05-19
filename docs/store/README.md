@@ -66,7 +66,7 @@ For valid response try integer IDs with value <= 5 or > 10. Other values will ge
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { GetOrderByIdResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { OrderStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { OrderStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -88,7 +88,7 @@ Place a new order in the store
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { PlaceOrderFormResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { OrderStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { OrderStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -98,7 +98,7 @@ sdk.store.placeOrderForm({
   petId: 198772,
   quantity: 7,
   shipDate: new Date("2022-11-26T13:23:33.410Z"),
-  status: OrderStatusEnum.Approved,
+  status: OrderStatus.Approved,
 }).then((res: PlaceOrderFormResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -115,7 +115,7 @@ Place a new order in the store
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { PlaceOrderJsonResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { OrderStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { OrderStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 
@@ -125,7 +125,7 @@ sdk.store.placeOrderJson({
   petId: 198772,
   quantity: 7,
   shipDate: new Date("2021-04-29T07:12:18.684Z"),
-  status: OrderStatusEnum.Approved,
+  status: OrderStatus.Approved,
 }).then((res: PlaceOrderJsonResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -142,7 +142,7 @@ Place a new order in the store
 ```typescript
 import { SDK } from "new-swagger-pet-store";
 import { PlaceOrderRawResponse } from "new-swagger-pet-store/dist/sdk/models/operations";
-import { OrderStatusEnum } from "new-swagger-pet-store/dist/sdk/models/shared";
+import { OrderStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 
 const sdk = new SDK();
 

@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * pet status in the store
  */
-export enum PetStatusEnum {
+export enum PetStatus {
   Available = "available",
   Pending = "pending",
   Sold = "sold",
@@ -42,7 +42,7 @@ export class Pet extends SpeakeasyBase {
    */
   @SpeakeasyMetadata({ data: "form, name=status" })
   @Expose({ name: "status" })
-  status?: PetStatusEnum;
+  status?: PetStatus;
 
   @SpeakeasyMetadata({ data: "form, name=tags;json=true", elemType: Tag })
   @Expose({ name: "tags" })
