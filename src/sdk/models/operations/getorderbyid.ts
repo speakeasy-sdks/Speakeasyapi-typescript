@@ -7,31 +7,29 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetOrderByIdRequest extends SpeakeasyBase {
-  /**
-   * ID of order that needs to be fetched
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=orderId",
-  })
-  orderId: number;
+    /**
+     * ID of order that needs to be fetched
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=orderId" })
+    orderId: number;
 }
 
 export class GetOrderByIdResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * successful operation
-   */
-  @SpeakeasyMetadata()
-  order?: shared.Order;
+    /**
+     * successful operation
+     */
+    @SpeakeasyMetadata()
+    order?: shared.Order;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

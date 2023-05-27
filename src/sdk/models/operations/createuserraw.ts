@@ -7,21 +7,21 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class CreateUserRawResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * successful operation
-   */
-  @SpeakeasyMetadata()
-  user?: shared.User;
+    /**
+     * successful operation
+     */
+    @SpeakeasyMetadata()
+    user?: shared.User;
 }

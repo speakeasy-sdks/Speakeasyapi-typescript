@@ -9,38 +9,38 @@ import { Expose } from "class-transformer";
  * Created user object
  */
 export class User extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "form, name=email" })
-  @Expose({ name: "email" })
-  email?: string;
+    @SpeakeasyMetadata({ data: "form, name=email" })
+    @Expose({ name: "email" })
+    email?: string;
 
-  @SpeakeasyMetadata({ data: "form, name=firstName" })
-  @Expose({ name: "firstName" })
-  firstName?: string;
+    @SpeakeasyMetadata({ data: "form, name=firstName" })
+    @Expose({ name: "firstName" })
+    firstName?: string;
 
-  @SpeakeasyMetadata({ data: "form, name=id" })
-  @Expose({ name: "id" })
-  id?: number;
+    @SpeakeasyMetadata({ data: "form, name=id" })
+    @Expose({ name: "id" })
+    id?: number;
 
-  @SpeakeasyMetadata({ data: "form, name=lastName" })
-  @Expose({ name: "lastName" })
-  lastName?: string;
+    @SpeakeasyMetadata({ data: "form, name=lastName" })
+    @Expose({ name: "lastName" })
+    lastName?: string;
 
-  @SpeakeasyMetadata({ data: "form, name=password" })
-  @Expose({ name: "password" })
-  password?: string;
+    @SpeakeasyMetadata({ data: "form, name=password" })
+    @Expose({ name: "password" })
+    password?: string;
 
-  @SpeakeasyMetadata({ data: "form, name=phone" })
-  @Expose({ name: "phone" })
-  phone?: string;
+    @SpeakeasyMetadata({ data: "form, name=phone" })
+    @Expose({ name: "phone" })
+    phone?: string;
 
-  /**
-   * User Status
-   */
-  @SpeakeasyMetadata({ data: "form, name=userStatus" })
-  @Expose({ name: "userStatus" })
-  userStatus?: number;
+    /**
+     * User Status
+     */
+    @SpeakeasyMetadata({ data: "form, name=userStatus" })
+    @Expose({ name: "userStatus" })
+    userStatus?: number;
 
-  @SpeakeasyMetadata({ data: "form, name=username" })
-  @Expose({ name: "username" })
-  username?: string;
+    @SpeakeasyMetadata({ data: "form, name=username" })
+    @Expose({ name: "username" })
+    username?: string;
 }

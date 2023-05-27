@@ -7,36 +7,34 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class FindPetsByTagsSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "security, scheme=true;type=oauth2;name=Authorization",
-  })
-  petstoreAuth: string;
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=oauth2;name=Authorization" })
+    petstoreAuth: string;
 }
 
 export class FindPetsByTagsRequest extends SpeakeasyBase {
-  /**
-   * Tags to filter by
-   */
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=tags" })
-  tags?: string[];
+    /**
+     * Tags to filter by
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=tags" })
+    tags?: string[];
 }
 
 export class FindPetsByTagsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * successful operation
-   */
-  @SpeakeasyMetadata({ elemType: shared.Pet })
-  pets?: shared.Pet[];
+    /**
+     * successful operation
+     */
+    @SpeakeasyMetadata({ elemType: shared.Pet })
+    pets?: shared.Pet[];
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

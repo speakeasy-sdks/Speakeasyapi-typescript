@@ -7,47 +7,43 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class FindPetsByStatusSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "security, scheme=true;type=oauth2;name=Authorization",
-  })
-  petstoreAuth: string;
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=oauth2;name=Authorization" })
+    petstoreAuth: string;
 }
 
 /**
  * Status values that need to be considered for filter
  */
 export enum FindPetsByStatusStatus {
-  Available = "available",
-  Pending = "pending",
-  Sold = "sold",
+    Available = "available",
+    Pending = "pending",
+    Sold = "sold",
 }
 
 export class FindPetsByStatusRequest extends SpeakeasyBase {
-  /**
-   * Status values that need to be considered for filter
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=status",
-  })
-  status?: FindPetsByStatusStatus;
+    /**
+     * Status values that need to be considered for filter
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=status" })
+    status?: FindPetsByStatusStatus;
 }
 
 export class FindPetsByStatusResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * successful operation
-   */
-  @SpeakeasyMetadata({ elemType: shared.Pet })
-  pets?: shared.Pet[];
+    /**
+     * successful operation
+     */
+    @SpeakeasyMetadata({ elemType: shared.Pet })
+    pets?: shared.Pet[];
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

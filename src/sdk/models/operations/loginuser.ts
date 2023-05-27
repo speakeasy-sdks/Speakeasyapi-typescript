@@ -6,45 +6,41 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class LoginUserRequest extends SpeakeasyBase {
-  /**
-   * The password for login in clear text
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=password",
-  })
-  password?: string;
+    /**
+     * The password for login in clear text
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=password" })
+    password?: string;
 
-  /**
-   * The user name for login
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=username",
-  })
-  username?: string;
+    /**
+     * The user name for login
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=username" })
+    username?: string;
 }
 
 export class LoginUserResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  headers?: Record<string, string[]>;
+    @SpeakeasyMetadata()
+    headers?: Record<string, string[]>;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * successful operation
-   */
-  @SpeakeasyMetadata()
-  loginUser200ApplicationJSONString?: string;
+    /**
+     * successful operation
+     */
+    @SpeakeasyMetadata()
+    loginUser200ApplicationJSONString?: string;
 
-  /**
-   * successful operation
-   */
-  @SpeakeasyMetadata()
-  loginUser200ApplicationXMLString?: string;
+    /**
+     * successful operation
+     */
+    @SpeakeasyMetadata()
+    loginUser200ApplicationXMLString?: string;
 }

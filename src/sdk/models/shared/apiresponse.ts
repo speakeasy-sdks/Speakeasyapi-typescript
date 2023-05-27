@@ -9,15 +9,15 @@ import { Expose } from "class-transformer";
  * successful operation
  */
 export class ApiResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "code" })
-  code?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "code" })
+    code?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: string;
 }

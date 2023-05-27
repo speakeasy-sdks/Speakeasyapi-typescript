@@ -6,22 +6,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class DeleteUserRequest extends SpeakeasyBase {
-  /**
-   * The name that needs to be deleted
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=username",
-  })
-  username: string;
+    /**
+     * The name that needs to be deleted
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=username" })
+    username: string;
 }
 
 export class DeleteUserResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

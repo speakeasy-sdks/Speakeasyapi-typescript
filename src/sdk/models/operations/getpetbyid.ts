@@ -7,43 +7,37 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetPetByIdSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "security, scheme=true;type=apiKey;subtype=header;name=api_key",
-  })
-  apiKey?: string;
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=api_key" })
+    apiKey?: string;
 
-  @SpeakeasyMetadata({
-    data: "security, scheme=true;type=oauth2;name=Authorization",
-  })
-  petstoreAuth?: string;
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=oauth2;name=Authorization" })
+    petstoreAuth?: string;
 }
 
 export class GetPetByIdRequest extends SpeakeasyBase {
-  /**
-   * ID of pet to return
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=petId",
-  })
-  petId: number;
+    /**
+     * ID of pet to return
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=petId" })
+    petId: number;
 }
 
 export class GetPetByIdResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * successful operation
-   */
-  @SpeakeasyMetadata()
-  pet?: shared.Pet;
+    /**
+     * successful operation
+     */
+    @SpeakeasyMetadata()
+    pet?: shared.Pet;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

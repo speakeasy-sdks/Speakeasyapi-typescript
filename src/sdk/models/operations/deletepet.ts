@@ -6,34 +6,28 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class DeletePetSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "security, scheme=true;type=oauth2;name=Authorization",
-  })
-  petstoreAuth: string;
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=oauth2;name=Authorization" })
+    petstoreAuth: string;
 }
 
 export class DeletePetRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "header, style=simple;explode=false;name=api_key",
-  })
-  apiKey?: string;
+    @SpeakeasyMetadata({ data: "header, style=simple;explode=false;name=api_key" })
+    apiKey?: string;
 
-  /**
-   * Pet id to delete
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=petId",
-  })
-  petId: number;
+    /**
+     * Pet id to delete
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=petId" })
+    petId: number;
 }
 
 export class DeletePetResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

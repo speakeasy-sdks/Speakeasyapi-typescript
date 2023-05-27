@@ -6,22 +6,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class DeleteOrderRequest extends SpeakeasyBase {
-  /**
-   * ID of the order that needs to be deleted
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=orderId",
-  })
-  orderId: number;
+    /**
+     * ID of the order that needs to be deleted
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=orderId" })
+    orderId: number;
 }
 
 export class DeleteOrderResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

@@ -6,43 +6,37 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class UpdatePetWithFormSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "security, scheme=true;type=oauth2;name=Authorization",
-  })
-  petstoreAuth: string;
+    @SpeakeasyMetadata({ data: "security, scheme=true;type=oauth2;name=Authorization" })
+    petstoreAuth: string;
 }
 
 export class UpdatePetWithFormRequest extends SpeakeasyBase {
-  /**
-   * Name of pet that needs to be updated
-   */
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=name" })
-  name?: string;
+    /**
+     * Name of pet that needs to be updated
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=name" })
+    name?: string;
 
-  /**
-   * ID of pet that needs to be updated
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=petId",
-  })
-  petId: number;
+    /**
+     * ID of pet that needs to be updated
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=petId" })
+    petId: number;
 
-  /**
-   * Status of pet that needs to be updated
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=status",
-  })
-  status?: string;
+    /**
+     * Status of pet that needs to be updated
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=status" })
+    status?: string;
 }
 
 export class UpdatePetWithFormResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }
