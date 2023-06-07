@@ -39,8 +39,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    sdkVersion = "0.14.0";
-    genVersion = "2.35.3";
+    sdkVersion = "0.14.1";
+    genVersion = "2.35.9";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -48,7 +48,7 @@ export class SDKConfiguration {
 }
 
 /**
- * This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about
+ * Swagger Petstore - OpenAPI 3.0: This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about
  *
  * @remarks
  * Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!
