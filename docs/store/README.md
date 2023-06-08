@@ -49,7 +49,7 @@ import { GetInventoryResponse } from "new-swagger-pet-store/dist/sdk/models/oper
 const sdk = new SDK();
 
 sdk.store.getInventory({
-  apiKey: "YOUR_API_KEY_HERE",
+  apiKey: "",
 }).then((res: GetInventoryResponse) => {
   if (res.statusCode == 200) {
     // handle response

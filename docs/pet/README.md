@@ -64,7 +64,7 @@ sdk.pet.addPetForm({
     },
   ],
 }, {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: AddPetFormResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -108,7 +108,7 @@ sdk.pet.addPetJson({
     },
   ],
 }, {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: AddPetJsonResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -130,7 +130,7 @@ import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 const sdk = new SDK();
 
 sdk.pet.addPetRaw("saepe".encode(), {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: AddPetRawResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -154,7 +154,7 @@ sdk.pet.deletePet({
   apiKey: "fuga",
   petId: 449950,
 }, {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: DeletePetResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -178,7 +178,7 @@ const sdk = new SDK();
 sdk.pet.findPetsByStatus({
   status: FindPetsByStatusStatus.Pending,
 }, {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: FindPetsByStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -206,7 +206,7 @@ sdk.pet.findPetsByTags({
     "quidem",
   ],
 }, {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: FindPetsByTagsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -230,7 +230,7 @@ const sdk = new SDK();
 sdk.pet.getPetById({
   petId: 99280,
 }, {
-  apiKey: "YOUR_API_KEY_HERE",
+  apiKey: "",
 }).then((res: GetPetByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -255,7 +255,7 @@ sdk.pet.updatePetWithForm({
   petId: 170909,
   status: "dolorem",
 }, {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: UpdatePetWithFormResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -303,7 +303,7 @@ sdk.pet.updatePetForm({
     },
   ],
 }, {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: UpdatePetFormResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -343,7 +343,7 @@ sdk.pet.updatePetJson({
     },
   ],
 }, {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: UpdatePetJsonResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -365,7 +365,7 @@ import { PetStatus } from "new-swagger-pet-store/dist/sdk/models/shared";
 const sdk = new SDK();
 
 sdk.pet.updatePetRaw("quo".encode(), {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: UpdatePetRawResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -390,7 +390,7 @@ sdk.pet.uploadFile({
   additionalMetadata: "tenetur",
   petId: 368725,
 }, {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: UploadFileResponse) => {
   if (res.statusCode == 200) {
     // handle response

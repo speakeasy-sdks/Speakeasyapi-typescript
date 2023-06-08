@@ -38,7 +38,7 @@ sdk.pet.addPetForm({
     },
   ],
 }, {
-  petstoreAuth: "Bearer YOUR_ACCESS_TOKEN_HERE",
+  petstoreAuth: "",
 }).then((res: AddPetFormResponse) => {
   if (res.statusCode == 200) {
     // handle response
