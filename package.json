@@ -1,6 +1,6 @@
 {
   "name": "new-swagger-pet-store",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "author": "Speakeasyapi",
   "scripts": {
     "prepare": "tsc --build"

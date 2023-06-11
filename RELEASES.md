@@ -215,3 +215,11 @@ Based on:
 - Speakeasy CLI 1.47.0 (2.39.0) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.16.0] https://www.npmjs.com/package/new-swagger-pet-store/v/0.16.0 - .
+
+## 2023-06-11 01:41:09
+### Changes
+Based on:
+- OpenAPI Doc 1.0.11 https://prod.speakeasyapi.dev/v1/apis/Pet-Store/version/v0.0.1/schema/download
+- Speakeasy CLI 1.47.1 (2.39.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.16.1] https://www.npmjs.com/package/new-swagger-pet-store/v/0.16.1 - .
